@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SHM_ver1.Pages.User.UserProfilePage"
+             Title="Profile">
+
+    <VerticalStackLayout Padding="30" Spacing="15">
+
+        <Label Text="User Profile"
+               HorizontalOptions="Center"
+               VerticalOptions="Center" />
+        
+        <Label x:Name="LocationLabel"
+           Text="Your location will appear here"
+           HorizontalOptions="Center" />
+
+        <Button Text="Get My Location"
+            Clicked="OnGetLocationClicked" />
+
+        <Button Text="Logout"
+                BackgroundColor="#E74C3C"
+                TextColor="White"
+                Clicked="OnLogoutClicked" />
+
+    </VerticalStackLayout>
+
+</ContentPage>
+
