@@ -14,6 +14,13 @@
 
                         <Label Text="Status:" FontAttributes="Bold"/>
                         <Label Text="{Binding Status}"/>
+
+                        <Button Text="Accept"
+        Clicked="Accept_Clicked"/>
+
+                        <Button Text="Reject"
+        Clicked="Reject_Clicked"/>
+
                     </VerticalStackLayout>
                 </Border>
             </DataTemplate>

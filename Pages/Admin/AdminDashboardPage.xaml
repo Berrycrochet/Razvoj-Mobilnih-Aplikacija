@@ -18,8 +18,10 @@
                         <Label Text="{Binding Description}"
                                FontSize="14"/>
 
-                        <Label Text="{Binding Pay, StringFormat='Pay: {0:C}'}"
-                               TextColor="Green"/>
+                        <Label Text="{Binding PayDisplay}"
+                                   FontSize="14"
+                                   TextColor="Green"/>
+
 
                         <HorizontalStackLayout Spacing="10">
                             <Button Text="Uredi"

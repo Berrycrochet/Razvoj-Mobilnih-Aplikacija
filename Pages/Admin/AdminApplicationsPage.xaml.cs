@@ -20,12 +20,28 @@ public partial class AdminApplicationsPage : ContentPage
     {
         base.OnAppearing();
 
+        Applications.Clear();
         var apps = await App.Database.GetApplicationsForJobAsync(SideHustleId);
 
-        Applications.Clear();
         foreach (var a in apps)
-        {
             Applications.Add(a);
-        }
+    }
+
+    private async void Accept_Clicked(object sender, EventArgs e)
+    {
+        var app = (JobApplicationModel)((Button)sender).BindingContext;
+        app.Status = "Accepted";
+
+        await App.Database.SaveApplicationAsync(app);
+        await DisplayAlertAsync("Done", "Application accepted", "OK");
+    }
+
+    private async void Reject_Clicked(object sender, EventArgs e)
+    {
+        var app = (JobApplicationModel)((Button)sender).BindingContext;
+        app.Status = "Rejected";
+
+        await App.Database.SaveApplicationAsync(app);
+        await DisplayAlertAsync("Done", "Application rejected", "OK");
     }
 }

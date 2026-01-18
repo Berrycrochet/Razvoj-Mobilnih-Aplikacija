@@ -21,13 +21,17 @@ namespace SHM_ver1
             }
 
             Database = new DatabaseService(dbPath);
-        
-            
+
+
         }
 
         protected override Window CreateWindow(IActivationState? activationState)
         {
             return new Window(new LoginPage());
         }
+
+
+
     }
+
 }

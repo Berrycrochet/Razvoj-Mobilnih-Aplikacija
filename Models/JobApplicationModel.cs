@@ -11,12 +11,17 @@ namespace SHM_ver1.Models
         public int Id { get; set; }
 
         public int SideHustleId { get; set; }
+        public string SideHustleTitle { get; set; } = string.Empty;
         public string UserName { get; set; } = string.Empty;
 
-        public int UserId { get; set; }   // za sada fake (npr. 1)
+        public string UserId { get; set; } = string.Empty;  // za sada fake (npr. 1)
 
         public string Status { get; set; } = "Pending";
         // Pending | Accepted | Rejected
+
+        public DateTime AppliedAt { get; set; }
+
+        public DateTime? FinishedAt { get; set; }
     }
 }
 
