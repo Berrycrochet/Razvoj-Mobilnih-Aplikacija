@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SHM_ver1.Pages.User.UserHomePage"
+             Title="Home">
+
+    <VerticalStackLayout Padding="10">
+    <Picker x:Name="CategoryPicker"
+         Title="Filter po kategoriji"
+         SelectedIndexChanged="CategoryPicker_SelectedIndexChanged"/>
+
+        <CollectionView ItemsSource="{Binding SideHustles}" Margin="10">
+
+
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Border BackgroundColor="LightGray" Padding="10" Margin="5">
+                        <VerticalStackLayout>
+                            <Label Text="{Binding Title}" FontAttributes="Bold" FontSize="18"/>
+                            <Label Text="{Binding Description}" FontSize="14" LineBreakMode="TailTruncation"/>
+                            <Label Text="{Binding PayDisplay}"
+                                    FontSize="14"
+                                    TextColor="Green"/>
+
+
+                            <Button Text="Prijavi se"
+                             BackgroundColor="DarkGreen"
+                             TextColor="White"
+                             Clicked="Apply_Clicked"
+                             CommandParameter="{Binding .}"
+                         />
+                        </VerticalStackLayout>
+                    </Border>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+
+
+
+        </CollectionView>
+    </VerticalStackLayout>
+</ContentPage>
