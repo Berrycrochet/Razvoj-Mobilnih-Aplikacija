@@ -12,7 +12,7 @@ public partial class AdminProfilePage : ContentPage
 
     private async void Logout_Clicked(object sender, EventArgs e)
     {
-        bool answer = await DisplayAlertAsync("Logout", "Are you sure you want to logout?", "Yes", "No");
+        bool answer = await DisplayAlertAsync("Odjava", "Da li ste sigurni da se želite odjaviti", "Da", "Ne");
         if (answer)
         {
             Application.Current!.Windows[0].Page = new NavigationPage(new LoginPage());

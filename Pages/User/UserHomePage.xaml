@@ -1,6 +1,7 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Side_Hustle_Manager.Pages.User.UserHomePage"
+             BackgroundColor="#F9FBFA"
              Title="Poslovi">
 
     <VerticalStackLayout Padding="10" Spacing="10">
@@ -16,29 +17,38 @@
         <CollectionView ItemsSource="{Binding SideHustles}">
             <CollectionView.ItemTemplate>
                 <DataTemplate>
-                    <Border BackgroundColor="LightGray" Padding="10" Margin="5">
-                        <VerticalStackLayout>
+                    <Border BackgroundColor="#FFFFFF"
+                            StrokeShape="RoundRectangle 12"
+                            Padding="10"
+                            Margin="6">
+
+                        <VerticalStackLayout Spacing="8">
+
+                            <Image Source="{Binding ImagePath}"
+                                   HeightRequest="140"
+                                   Aspect="AspectFill"/>
 
                             <Label Text="{Binding Title}"
                                    FontAttributes="Bold"
-                                   FontSize="18"/>
+                                   FontSize="18"
+                                   TextColor="#1E2D24"/>
 
-                            <Label Text="{Binding Description}" FontSize="14"/>
+                            <Label Text="{Binding Description}"
+                                   FontSize="14"
+                                   TextColor="#6B7F74"/>
 
                             <Label Text="{Binding PayDisplay}"
-                                   FontSize="14"
-                                   TextColor="Green"/>
-
-                            <Label Text="{Binding EmployerName}"
-                                   FontSize="12"
-                                   TextColor="Gray"/>
+                                   FontAttributes="Bold"
+                                   TextColor="#27AE60"/>
 
                             <Button Text="Prijavi se"
-                                    BackgroundColor="DarkGreen"
+                                    BackgroundColor="#2ECC71"
                                     TextColor="White"
+                                    CornerRadius="8"
                                     Clicked="Apply_Clicked"
                                     CommandParameter="{Binding .}"/>
                         </VerticalStackLayout>
+
                     </Border>
                 </DataTemplate>
             </CollectionView.ItemTemplate>

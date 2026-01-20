@@ -4,24 +4,49 @@
              x:Class="Side_Hustle_Manager.Pages.Admin.AdminAddJobPage"
              Title="AdminAddJobPage">
 
-    <VerticalStackLayout>
-        <Entry x:Name="TitleEntry"
-           Placeholder="Naziv posla"/>
+    <ScrollView>
+        
+        <VerticalStackLayout Padding="20"
+                         Spacing="14"
+                         BackgroundColor="#F9FBFA">
 
-        <Entry x:Name="DescriptionEntry"
-           Placeholder="Opis"/>
+            <Label Text="Dodaj posao"
+               FontSize="22"
+               FontAttributes="Bold"
+               TextColor="#1E2D24"/>
 
-        <Entry x:Name="PayEntry"
-           Placeholder="Dnevnica"
-           Keyboard="Numeric"/>
+            <Entry x:Name="TitleEntry"
+               Placeholder="Naziv posla"/>
 
-        <Picker x:Name="CategoryPicker"
-        Title="Odaberi kategoriju" />
+            <Editor x:Name="DescriptionEntry"
+                Placeholder="Opis posla"
+                HeightRequest="100"/>
 
+            <Entry x:Name="PayEntry"
+               Placeholder="Dnevnica (KM)"
+               Keyboard="Numeric"/>
 
-        <Button Text="Sacuvaj"
-            Clicked="Save_Clicked"/>
+            <Picker x:Name="CategoryPicker"
+                Title="Kategorija"/>
 
+            <!-- 🖼️ PREVIEW SLIKE -->
+            <Image x:Name="JobImage"
+               HeightRequest="160"
+               Aspect="AspectFill"
+               IsVisible="False"
+               BackgroundColor="#A3E4D7"/>
 
-    </VerticalStackLayout>
+            <Button Text="Dodaj sliku"
+                BackgroundColor="#27AE60"
+                TextColor="White"
+                Clicked="PickImage_Clicked"/>
+
+            <Button Text="Sačuvaj"
+                BackgroundColor="#2ECC71"
+                TextColor="White"
+                Clicked="Save_Clicked"/>
+        </VerticalStackLayout>
+        
+    </ScrollView>
+
 </ContentPage>

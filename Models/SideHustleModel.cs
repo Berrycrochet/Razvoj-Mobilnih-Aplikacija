@@ -15,6 +15,7 @@ namespace Side_Hustle_Manager.Models
         public string PayDisplay => $"{Pay} KM";
         public string Category { get; set; } = "";
         public string EmployerName { get; set; } = "";
+        public string ImagePath { get; set; }
 
     }
 }
