@@ -1,4 +1,4 @@
-using Side_Hustle_Manager.Models;
+﻿using Side_Hustle_Manager.Models;
 
 namespace Side_Hustle_Manager.Pages.Admin;
 
@@ -40,7 +40,8 @@ public partial class AdminAddJobPage : ContentPage
             FileTypes = FilePickerFileType.Images
         });
 
-        if (result == null) return;
+        if (result == null)
+            return;
 
         JobImage.Source = result.FullPath;
         JobImage.IsVisible = true;
@@ -51,10 +52,17 @@ public partial class AdminAddJobPage : ContentPage
         _sideHustle.ImagePath = result.FullPath;
     }
 
+    private void RemoveImage_Clicked(object sender, EventArgs e)
+    {
+        JobImage.Source = null;
+        JobImage.IsVisible = false;
+
+        if (_sideHustle != null)
+            _sideHustle.ImagePath = null;
+    }
+
     private async void Save_Clicked(object sender, EventArgs e)
     {
-        bool isEdit = _sideHustle != null;
-
         if (_sideHustle == null)
             _sideHustle = new SideHustleModel();
 
@@ -66,7 +74,21 @@ public partial class AdminAddJobPage : ContentPage
 
         await App.SideHustleDatabase.SaveSideHustleAsync(_sideHustle);
 
-        await DisplayAlert("Uspje�no", "Posao sa�uvan", "OK");
-        await Shell.Current.GoToAsync("..");
+        await DisplayAlertAsync("Uspješno", "Posao sačuvan", "OK");
+
+        ResetForm(); // 🔥 KLJUČNO
+    }
+
+    private void ResetForm()
+    {
+        TitleEntry.Text = "";
+        DescriptionEntry.Text = "";
+        PayEntry.Text = "";
+        CategoryPicker.SelectedItem = null;
+
+        JobImage.Source = null;
+        JobImage.IsVisible = false;
+
+        _sideHustle = null;
     }
 }
