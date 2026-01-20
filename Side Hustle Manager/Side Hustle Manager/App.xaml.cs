@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection;
+using Side_Hustle_Manager.Models;
 using Side_Hustle_Manager.Pages;
 using Side_Hustle_Manager.Services;
 
@@ -9,6 +10,7 @@ namespace Side_Hustle_Manager
         // ---------------- Globalni pristup bazama ----------------
         public static UserDatabaseService UserDatabase { get; private set; }
         public static SideHustleDatabaseService SideHustleDatabase { get; private set; }
+        public static UserModel CurrentUser { get; set; }
 
         public App()
         {
@@ -24,8 +26,6 @@ namespace Side_Hustle_Manager
 
             // ---------------- Startna stranica ----------------
             MainPage = new NavigationPage(new LoginPage());
-
-
         }
     }
 }

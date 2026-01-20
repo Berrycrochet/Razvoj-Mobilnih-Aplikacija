@@ -3,6 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Side_Hustle_Manager.Pages.Admin.AdminApplicationPage"
             >
+             
+  
     <CollectionView ItemsSource="{Binding Applications}" Margin="10">
         <CollectionView.ItemTemplate>
             <DataTemplate>
@@ -18,7 +20,8 @@
                                 Clicked="Accept_Clicked"/>
 
                         <Button Text="Odbij"
-                                Clicked="Reject_Clicked"/>
+                        <Button Text="Accept"
+                                Clicked="Accept_Clicked"/>
 
                     </VerticalStackLayout>
                 </Border>

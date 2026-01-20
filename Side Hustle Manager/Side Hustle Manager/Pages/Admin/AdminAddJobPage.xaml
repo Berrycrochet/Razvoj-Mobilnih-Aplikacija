@@ -54,5 +54,4 @@
                     Clicked="Save_Clicked"/>
         </VerticalStackLayout>
     </ScrollView>
-
 </ContentPage>

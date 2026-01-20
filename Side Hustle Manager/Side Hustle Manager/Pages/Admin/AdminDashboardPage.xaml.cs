@@ -1,4 +1,4 @@
-﻿using Side_Hustle_Manager.Models;
+ï»¿using Side_Hustle_Manager.Models;
 using System.Collections.ObjectModel;
 
 namespace Side_Hustle_Manager.Pages.Admin;
@@ -82,7 +82,7 @@ public partial class AdminDashboardPage : ContentPage
         var hustle = (sender as Button)?.CommandParameter as SideHustleModel;
         if (hustle == null) return;
 
-        bool confirm = await DisplayAlertAsync("Izbriši", $"Izbriši '{hustle.Title}'?", "Da", "Ne");
+        bool confirm = await DisplayAlertAsync("IzbriÅ¡i", $"IzbriÅ¡i '{hustle.Title}'?", "Da", "Ne");
         if (!confirm) return;
 
         await App.SideHustleDatabase.DeleteSideHustleAsync(hustle);

@@ -7,16 +7,17 @@ namespace Side_Hustle_Manager.Models
 {
     public class UserSideHustleViewModel
     {
+
         public int ApplicationId { get; set; }
 
         public string Title { get; set; }
         public string Category { get; set; }
         public string Description { get; set; }
 
-        // ORIGINALNI STATUS (iz baze)
+       
         public string Status { get; set; }
 
-        // STATUS ZA PRIKAZ
+     
         public string StatusDisplay =>
             Status switch
             {

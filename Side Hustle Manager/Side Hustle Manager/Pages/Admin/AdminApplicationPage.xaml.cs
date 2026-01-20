@@ -34,7 +34,8 @@ public partial class AdminApplicationPage : ContentPage
         app.Status = "Accepted";
 
         await App.SideHustleDatabase.SaveApplicationAsync(app);
-        await DisplayAlertAsync("Završeno", "Prijava je prihvacena.", "OK");
+        await DisplayAlertAsync("Zavrï¿½eno", "Prijava je prihvacena.", "OK");
+    
     }
 
     private async void Reject_Clicked(object sender, EventArgs e)
@@ -43,7 +44,8 @@ public partial class AdminApplicationPage : ContentPage
         app.Status = "Rejected";
 
         await App.SideHustleDatabase.SaveApplicationAsync(app);
-        await DisplayAlertAsync("Završeno", "Prijava je odbijena.", "OK");
+        await DisplayAlertAsync("Zavrï¿½eno", "Prijava je odbijena.", "OK");
+       
     }
 }
 

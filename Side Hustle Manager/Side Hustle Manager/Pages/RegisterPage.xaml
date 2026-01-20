@@ -13,7 +13,7 @@
         <Entry Placeholder="Lozinka" IsPassword="True" Text="{Binding Password}" />
         <Button Text="Registracija" Clicked="OnRegisterClicked" />
 
-        <Label Text="Izaberite ulogu: " />
+        <Label Text="Choose role" />
 
         <RadioButton x:Name="UserRadio"
              Content="Korisnik"
