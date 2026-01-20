@@ -3,23 +3,60 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Side_Hustle_Manager.Pages.User.UserProfilePage"
              Title="UserProfilePage">
-    <VerticalStackLayout Padding="30" Spacing="15">
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="15">
 
-        <Label Text="User Profile"
-             HorizontalOptions="Center"
-             VerticalOptions="Center" />
+            <!-- PROFILNA SLIKA -->
+            <Image x:Name="ProfileImage"
+               HeightRequest="150"
+               WidthRequest="150"
+               Aspect="AspectFill"
+               HorizontalOptions="Center"
+               BackgroundColor="#DDD"
+               Source="avatar_placeholder.png"/>
+            <Button Text="Change Profile Image"
+                    Clicked="OnChangeImageClicked"/>
 
-        <Label x:Name="LocationLabel"
-         Text="Your location will appear here"
-         HorizontalOptions="Center" />
+            <!-- SKILLS -->
+            <Label Text="Skills" FontAttributes="Bold"/>
+            <Entry x:Name="SkillEntry" Placeholder="Add new skill"/>
+            <Button Text="Add Skill" Clicked="OnAddSkillClicked"/>
+            <CollectionView x:Name="SkillsCollection">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <HorizontalStackLayout Spacing="10">
+                            <Label Text="{Binding SkillName}" VerticalOptions="Center"/>
+                            <Button Text="Delete" Clicked="OnDeleteSkillClicked"/>
+                        </HorizontalStackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
 
-        <Button Text="Get My Location"
-          Clicked="OnGetLocationClicked" />
+            <!-- EXPERIENCE -->
+            <Label Text="Experience" FontAttributes="Bold"/>
+            <Entry x:Name="ExperienceTitleEntry" Placeholder="Title"/>
+            <Entry x:Name="ExperienceCompanyEntry" Placeholder="Company"/>
+            <Entry x:Name="ExperiencePeriodEntry" Placeholder="Period"/>
+            <Button Text="Add Experience" Clicked="OnAddExperienceClicked"/>
+            <CollectionView x:Name="ExperienceCollection">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <HorizontalStackLayout Spacing="10">
+                            <Label Text="{Binding Title}" VerticalOptions="Center"/>
+                            <Label Text="{Binding Company}" VerticalOptions="Center"/>
+                            <Label Text="{Binding Period}" VerticalOptions="Center"/>
+                            <Button Text="Delete" Clicked="OnDeleteExperienceClicked"/>
+                        </HorizontalStackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+            
+            <!-- LOCATION -->
+            <Label x:Name="LocationLabel" Text="Your location will appear here" HorizontalOptions="Center" />
+            <Button Text="Get My Location" Clicked="OnGetLocationClicked" />
 
-        <Button Text="Logout"
-              BackgroundColor="#E74C3C"
-              TextColor="White"
-              Clicked="OnLogoutClicked" />
-
-    </VerticalStackLayout>
+            <!-- Logout dugme -->
+            <Button Text="Logout" BackgroundColor="#E74C3C" TextColor="White" Clicked="OnLogoutClicked"/>
+        </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>

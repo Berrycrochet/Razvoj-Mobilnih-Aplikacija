@@ -12,4 +12,30 @@
         <Button Text="Odjavi se"
      Clicked="Logout_Clicked"/>
     </VerticalStackLayout>
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="15">
+
+            <!-- Profilna slika -->
+            <Image x:Name="ProfileImage"
+                   HeightRequest="150"
+                   WidthRequest="150"
+                   Aspect="AspectFill"
+                   HorizontalOptions="Center"
+                   BackgroundColor="#DDD"
+                   Source="avatar_placeholder.png"/>
+            <Button Text="Change Profile Image" Clicked="OnChangeImageClicked"/>
+
+            <!-- Ime, Naziv, Adresa, Kontakt -->
+            <Entry x:Name="NameEntry" Placeholder="Name"/>
+            <Entry x:Name="CompanyEntry" Placeholder="Company Name"/>
+            <Entry x:Name="AddressEntry" Placeholder="Address"/>
+            <Entry x:Name="ContactEntry" Placeholder="Contact Info"/>
+
+            <Button Text="Save Changes" Clicked="OnSaveClicked"/>
+      
+    <Button Text="Odjavi se"
+     Clicked="Logout_Clicked"/>
+    </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>
