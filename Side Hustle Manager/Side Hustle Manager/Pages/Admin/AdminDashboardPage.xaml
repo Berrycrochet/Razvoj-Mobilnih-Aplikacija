@@ -1,57 +1,78 @@
-<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Side_Hustle_Manager.Pages.Admin.AdminDashboardPage"
-             Title="AdminDashboardPage">
-    
-    <CollectionView ItemsSource="{Binding SideHustles}" Margin="10">
-        <CollectionView.ItemTemplate>
-            <DataTemplate>
-                <Border Padding="10" Margin="5" BackgroundColor="LightGray">
+             BackgroundColor="#F9FBFA"
+             >
 
-                    <VerticalStackLayout Spacing="6">
-                        <Label Text="{Binding Title}"
-                        FontSize="18"
-                        FontAttributes="Bold"
-                        />
+    <ScrollView>
+        <VerticalStackLayout Padding="10" Spacing="10">
 
-                        <Label Text="{Binding Description}"
-                        FontSize="14"/>
+            <Picker x:Name="CategoryPicker"
+                    Title="Kategorija"
+                    SelectedIndexChanged="FilterChanged"/>
 
-                        <Label Text="{Binding PayDisplay}"
-                            FontSize="14"
-                            TextColor="Green"/>
+            <Picker x:Name="EmployerPicker"
+                    Title="Poslodavac"
+                    SelectedIndexChanged="FilterChanged"/>
 
+            <CollectionView ItemsSource="{Binding SideHustles}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Border BackgroundColor="#FFFFFF"
+                                StrokeShape="RoundRectangle 12"
+                                Padding="10"
+                                Margin="6">
 
-                        <HorizontalStackLayout Spacing="10">
-                            <Button Text="Uredi"
-                             Clicked="Edit_Clicked"
-                             CommandParameter="{Binding .}"/>
+                            <VerticalStackLayout Spacing="8">
 
-                            <Button Text="Izbriši"
-                             BackgroundColor="IndianRed"
-                             TextColor="White"
-                             Clicked="Delete_Clicked"
-                             CommandParameter="{Binding .}"/>
+                                <Image Source="{Binding ImagePath}"
+                                       HeightRequest="140"
+                                       Aspect="AspectFill"/>
 
-                            <Button Text="Applications"
-                                 Clicked="Applications_Clicked"
-                                 CommandParameter="{Binding .}" />
+                                <Label Text="{Binding Title}"
+                                       FontSize="18"
+                                       FontAttributes="Bold"
+                                       TextColor="#1E2D24"/>
 
-                        </HorizontalStackLayout>
-                    </VerticalStackLayout>
+                                <Label Text="{Binding Description}"
+                                       FontSize="14"
+                                       TextColor="#6B7F74"/>
 
+                                <Label Text="{Binding PayDisplay}"
+                                       FontAttributes="Bold"
+                                       TextColor="#27AE60"/>
 
+                                <Label Text="{Binding EmployerName}"
+                                       FontSize="12"
+                                       TextColor="#6B7F74"/>
 
+                           
+                                <HorizontalStackLayout Spacing="10" Margin="0,10,0,0">
+                                    <Button Text="Uredi"
+                                            BackgroundColor="#2ECC71"
+                                            TextColor="White"
+                                            Clicked="Edit_Clicked"
+                                            CommandParameter="{Binding .}"/>
 
+                                    <Button Text="Izbriši"
+                                            BackgroundColor="#E74C3C"
+                                            TextColor="White"
+                                            Clicked="Delete_Clicked"
+                                            CommandParameter="{Binding .}"/>
 
-                </Border>
-            </DataTemplate>
-        </CollectionView.ItemTemplate>
+                                    <Button Text="Prijave"
+                                            BackgroundColor="#27AE60"
+                                            TextColor="White"
+                                            Clicked="Applications_Clicked"
+                                            CommandParameter="{Binding .}"/>
+                                </HorizontalStackLayout>
 
+                            </VerticalStackLayout>
+                        </Border>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
 
-
-
-    </CollectionView>
-
+        </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>

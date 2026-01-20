@@ -1,3 +1,4 @@
+ï»¿using Side_Hustle_Manager.Models;
 using SQLite;
 using Side_Hustle_Manager.Models;
 using System.Formats.Tar;
@@ -18,17 +19,60 @@ public partial class AdminAddJobPage : ContentPage
             TitleEntry.Text = value.Title;
             DescriptionEntry.Text = value.Description;
             PayEntry.Text = value.Pay.ToString();
+            CategoryPicker.SelectedItem = value.Category;
+
+            if (!string.IsNullOrEmpty(value.ImagePath))
+            {
+                JobImage.Source = value.ImagePath;
+                JobImage.IsVisible = true;
+            }
         }
     }
 
     public AdminAddJobPage()
     {
         InitializeComponent();
+        CategoryPicker.ItemsSource = JobCategories.All;
+    }
+
+    private async void PickImage_Clicked(object sender, EventArgs e)
+    {
+        var result = await FilePicker.PickAsync(new PickOptions
+        {
+            PickerTitle = "Izaberi sliku posla",
+            FileTypes = FilePickerFileType.Images
+        });
+
+        if (result == null)
+            return;
+
+        JobImage.Source = result.FullPath;
+        JobImage.IsVisible = true;
+
+        if (_sideHustle == null)
+            _sideHustle = new SideHustleModel();
+
+        _sideHustle.ImagePath = result.FullPath;
+    }
+
+    private void RemoveImage_Clicked(object sender, EventArgs e)
+    {
+        JobImage.Source = null;
+        JobImage.IsVisible = false;
+
+        if (_sideHustle != null)
+            _sideHustle.ImagePath = null;
     }
 
     private async void Save_Clicked(object sender, EventArgs e)
     {
         if (_sideHustle == null)
+            _sideHustle = new SideHustleModel();
+
+        _sideHustle.Title = TitleEntry.Text ?? "";
+        _sideHustle.Description = DescriptionEntry.Text ?? "";
+        _sideHustle.Category = CategoryPicker.SelectedItem?.ToString() ?? "";
+        _sideHustle.EmployerName = "Admin";
         {
             _sideHustle = new SideHustleModel();
         }
@@ -39,7 +83,24 @@ public partial class AdminAddJobPage : ContentPage
 
         await App.SideHustleDatabase.SaveSideHustleAsync(_sideHustle);
 
-        await DisplayAlertAsync("Uspje�no.", "Posao sa�uvan.", "OK");
+        await DisplayAlertAsync("UspjeÅ¡no", "Posao saÄuvan", "OK");
+
+        ResetForm(); // ðŸ”¥ KLJUÄŒNO
+    }
+
+    private void ResetForm()
+    {
+        TitleEntry.Text = "";
+        DescriptionEntry.Text = "";
+        PayEntry.Text = "";
+        CategoryPicker.SelectedItem = null;
+
+        JobImage.Source = null;
+        JobImage.IsVisible = false;
+
+        _sideHustle = null;
+    }
+        await DisplayAlertAsync("Uspješno.", "Posao saèuvan.", "OK");
 
         await Shell.Current.GoToAsync("..");
     }

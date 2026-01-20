@@ -2,7 +2,9 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Side_Hustle_Manager.Pages.Admin.AdminApplicationPage"
-             Title="AdminApplicationPage">
+            >
+             
+  
     <CollectionView ItemsSource="{Binding Applications}" Margin="10">
         <CollectionView.ItemTemplate>
             <DataTemplate>
@@ -14,11 +16,12 @@
                         <Label Text="Status:" FontAttributes="Bold"/>
                         <Label Text="{Binding Status}"/>
 
-                        <Button Text="Accept"
+                        <Button Text="Prihvati"
                                 Clicked="Accept_Clicked"/>
 
-                        <Button Text="Reject"
-                                Clicked="Reject_Clicked"/>
+                        <Button Text="Odbij"
+                        <Button Text="Accept"
+                                Clicked="Accept_Clicked"/>
 
                     </VerticalStackLayout>
                 </Border>
