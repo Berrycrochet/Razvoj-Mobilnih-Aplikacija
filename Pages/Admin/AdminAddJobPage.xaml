@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Side_Hustle_Manager.Pages.Admin.AdminAddJobPage"
+             Title="AdminAddJobPage">
+
+    <VerticalStackLayout>
+        <Entry x:Name="TitleEntry"
+           Placeholder="Naziv posla"/>
+
+        <Entry x:Name="DescriptionEntry"
+           Placeholder="Opis"/>
+
+        <Entry x:Name="PayEntry"
+           Placeholder="Dnevnica"
+           Keyboard="Numeric"/>
+
+        <Entry x:Name="CategoryEntry"
+            Placeholder="Kategorija (Delivery, IT, Cleaning...)"/>
+
+        <Button Text="Sačuvaj"
+            Clicked="Save_Clicked"/>
+
+
+    </VerticalStackLayout>
+</ContentPage>
