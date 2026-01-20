@@ -6,6 +6,11 @@ namespace Side_Hustle_Manager.Pages.Admin;
 
 public partial class AdminProfilePage : ContentPage
 {
+    public AdminProfilePage()
+    {
+        InitializeComponent();
+    }
+
     private UserDatabaseService _db = App.UserDatabase;
     private AdminProfileModel _profile;
     public AdminProfilePage()
