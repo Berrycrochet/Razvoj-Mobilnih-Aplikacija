@@ -15,10 +15,11 @@
            Placeholder="Dnevnica"
            Keyboard="Numeric"/>
 
-        <Entry x:Name="CategoryEntry"
-            Placeholder="Kategorija (Delivery, IT, Cleaning...)"/>
+        <Picker x:Name="CategoryPicker"
+        Title="Odaberi kategoriju" />
 
-        <Button Text="Sačuvaj"
+
+        <Button Text="Sacuvaj"
             Clicked="Save_Clicked"/>
 
 

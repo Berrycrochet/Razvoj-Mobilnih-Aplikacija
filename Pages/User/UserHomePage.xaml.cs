@@ -1,14 +1,14 @@
-using Side_Hustle_Manager.Models;
+﻿using Side_Hustle_Manager.Models;
 using System.Collections.ObjectModel;
 
 namespace Side_Hustle_Manager.Pages.User;
-
 
 public partial class UserHomePage : ContentPage
 {
     public ObservableCollection<SideHustleModel> SideHustles { get; set; } = new();
 
     private List<SideHustleModel> _allSideHustles = new();
+
     public UserHomePage()
     {
         InitializeComponent();
@@ -18,12 +18,16 @@ public partial class UserHomePage : ContentPage
     protected override async void OnAppearing()
     {
         base.OnAppearing();
+
         var hustles = await App.SideHustleDatabase.GetSideHustlesAsync();
+
+        _allSideHustles = hustles;   // 🔥 OVO JE FALILO
+
         SideHustles.Clear();
         foreach (var h in hustles)
-        {
             SideHustles.Add(h);
-        }
+
+        LoadCategories(); // 🔥 OVO JE FALILO
     }
 
     private async void Apply_Clicked(object sender, EventArgs e)
@@ -37,7 +41,6 @@ public partial class UserHomePage : ContentPage
         {
             SideHustleId = job.Id,
             UserId = "1"
-
         };
 
         await App.SideHustleDatabase.ApplyToJobAsync(application);
@@ -45,11 +48,11 @@ public partial class UserHomePage : ContentPage
         await DisplayAlertAsync("Prijavljen/a", "Prijavili ste se na posao.", "OK");
     }
 
-
     private void LoadCategories()
     {
         var categories = _allSideHustles
             .Select(h => h.Category)
+            .Where(c => !string.IsNullOrWhiteSpace(c))
             .Distinct()
             .OrderBy(c => c)
             .ToList();
@@ -76,8 +79,6 @@ public partial class UserHomePage : ContentPage
     {
         if (CategoryPicker.SelectedItem == null) return;
 
-        var selectedCategory = CategoryPicker.SelectedItem.ToString();
-        ApplyFilter(selectedCategory!);
+        ApplyFilter(CategoryPicker.SelectedItem.ToString()!);
     }
-
 }
