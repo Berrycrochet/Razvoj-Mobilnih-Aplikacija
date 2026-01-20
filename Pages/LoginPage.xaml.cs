@@ -35,7 +35,7 @@ public partial class LoginPage : ContentPage
         }
         else
         {
-            await DisplayAlertAsync("Error", "Invalid username or password", "OK");
+            await DisplayAlertAsync("Greška", "Pogrešno korisnièko ime ili lozinka.", "OK");
         }
     }
 

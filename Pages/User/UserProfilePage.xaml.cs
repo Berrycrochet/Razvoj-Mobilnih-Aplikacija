@@ -17,7 +17,7 @@ namespace Side_Hustle_Manager.Pages.User
 
         private async void OnLogoutClicked(object sender, EventArgs e)
         {
-            bool answer = await DisplayAlertAsync("Logout", "Are you sure you want to logout?", "Yes", "No");
+            bool answer = await DisplayAlertAsync("Odjava", "Da li ste sigurni da se želite odjaviti?", "Da", "Ne");
             if (answer)
             {
                 Application.Current.MainPage = new NavigationPage(new LoginPage());
@@ -44,33 +44,33 @@ namespace Side_Hustle_Manager.Pages.User
                     {
                         string city = placemark.Locality; // ovo je grad
                         string country = placemark.CountryName;
-                        LocationLabel.Text = $"City: {city}, Country: {country}";
+                        LocationLabel.Text = $"Grad: {city}, Država: {country}";
                     }
                     else
                     {
-                        LocationLabel.Text = "City not found";
+                        LocationLabel.Text = "Grad nije pronaðren";
                     }
                 }
                 else
                 {
-                    LocationLabel.Text = "Unable to get location";
+                    LocationLabel.Text = "Nije moguæe dobiti lokaciju.";
                 }
             }
             catch (FeatureNotSupportedException)
             {
-                await DisplayAlertAsync("Error", "Feature not supported on this device", "OK");
+                await DisplayAlertAsync("Greška", "Ova funkcija nije podržana na ovom ureðaju.", "OK");
             }
             catch (FeatureNotEnabledException)
             {
-                await DisplayAlertAsync("Error", "Please enable location services", "OK");
+                await DisplayAlertAsync("Greška", "Molimo omoguæite usluge lokacije.", "OK");
             }
             catch (PermissionException)
             {
-                await DisplayAlertAsync("Error", "Location permission denied", "OK");
+                await DisplayAlertAsync("Greška", "Dozvola za lokaciju je odbijena.", "OK");
             }
             catch (Exception ex)
             {
-                await DisplayAlertAsync("Error", $"Something went wrong: {ex.Message}", "OK");
+                await DisplayAlertAsync("Greška", $"Došlo je do greške: {ex.Message}", "OK");
             }
         }
 

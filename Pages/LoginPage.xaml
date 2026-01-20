@@ -18,14 +18,14 @@
             Text="{Binding Password}" />
 
 
-        <Button Text="Login"
+        <Button Text="Prijava"
              Clicked="OnLoginClicked" />
 
-        <Label Text="Don't have an account?"
+        <Label Text="Niste registrovani?"
     HorizontalOptions="Center"
     TextColor="#6B7F74" />
 
-        <Button Text="Register"
+        <Button Text="Registrujte se"
      BackgroundColor="Transparent"
      TextColor="#2ECC71"
      Clicked="OnRegisterClicked" />

@@ -5,18 +5,18 @@
              Title="UserProfilePage">
     <VerticalStackLayout Padding="30" Spacing="15">
 
-        <Label Text="User Profile"
+        <Label Text="Korisnički profil"
              HorizontalOptions="Center"
              VerticalOptions="Center" />
 
         <Label x:Name="LocationLabel"
-         Text="Your location will appear here"
+         Text="Vaša lokacija će se prikazati ovdje."
          HorizontalOptions="Center" />
 
-        <Button Text="Get My Location"
+        <Button Text="Dohvati moju lokaciju"
           Clicked="OnGetLocationClicked" />
 
-        <Button Text="Logout"
+        <Button Text="Odjava"
               BackgroundColor="#E74C3C"
               TextColor="White"
               Clicked="OnLogoutClicked" />

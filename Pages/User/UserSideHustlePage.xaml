@@ -29,7 +29,7 @@
                         <Frame Padding="6"
   CornerRadius="8"
   BackgroundColor="{Binding StatusColor}">
-                            <Label Text="{Binding Status}"
+                            <Label Text="{Binding StatusDisplay}"
       TextColor="White"
       FontAttributes="Bold"
       FontSize="12"/>

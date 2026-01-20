@@ -14,10 +14,10 @@
                         <Label Text="Status:" FontAttributes="Bold"/>
                         <Label Text="{Binding Status}"/>
 
-                        <Button Text="Accept"
+                        <Button Text="Prihvati"
                                 Clicked="Accept_Clicked"/>
 
-                        <Button Text="Reject"
+                        <Button Text="Odbij"
                                 Clicked="Reject_Clicked"/>
 
                     </VerticalStackLayout>
